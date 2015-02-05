@@ -1,0 +1,2 @@
+all:
+	virtualenv sentiment-venv
