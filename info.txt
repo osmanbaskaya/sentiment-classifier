@@ -1,0 +1,2 @@
+Information about lexicons: http://sentiment.christopherpotts.net/lexicons.html
+Word clusters: http://www.ark.cs.cmu.edu/TweetNLP/
