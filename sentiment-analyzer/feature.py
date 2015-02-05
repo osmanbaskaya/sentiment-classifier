@@ -1,6 +1,13 @@
 from abc import abstractmethod
 
 
+__all__ = ['WordCountFeature', 'CharacterCountFeature']
+
+
+def get_all_features():
+    return map(lambda cls: globals()[cls], __all__)
+
+
 class Feature(object):
 
     @staticmethod
@@ -28,8 +35,12 @@ class WordCountFeature(Feature):
         return map(len, sentences)
 
 
+class CharacterCountFeature(Feature):
+
+    def __new__(cls, *args, **kwargs):
+        raise ValueError("Not allowed to create instance. Use staticmethod")
 
 
-
-
-
+    @staticmethod
+    def transform(sentences):
+        return map(lambda sentence: sum(map(len, sentence)), sentences)
