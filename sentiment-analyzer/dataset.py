@@ -9,12 +9,16 @@ class Dataset(object):
         pass
 
     @staticmethod
-    def read_from_file(filename):
+    def read_from_file(*filenames):
         #FIXME: Improve
-        data = []
-        with codecs.open(filename, 'r', 'utf-8') as f:
-            for line in f:
-                data.append(line.strip())
-        return data
+        all = []
+        for fn in filenames:
+            data = []
+            with codecs.open(fn, 'r', 'utf-8') as f:
+                for line in f:
+                    data.append(line.strip())
+            all.append(data)
+        return all
+
 
 

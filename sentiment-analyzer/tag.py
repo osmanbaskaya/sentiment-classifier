@@ -3,6 +3,13 @@ import os
 from subprocess import Popen, PIPE
 
 
+class DummyTokenizer(object):
+
+    @staticmethod
+    def tokenize(sentences):
+        return map(unicode.split, sentences)
+
+
 class ArkTwitterTagger(object):
     """
     CMU Ark's Tokenizer and Tagger: http://www.ark.cs.cmu.edu/TweetNLP/
